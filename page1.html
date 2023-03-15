@@ -1,346 +1,913 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script>
+
+<head>
+  <!-- <script>
       function myFunction() {
         document.getElementById("stockbutton").innerHTML = "Paragraph changed.";
       }
-    </script>
-    <style>
-      .button {
-        background-color: white;
-        border: none;
-        color: black;
-        padding: 15px 32px;
-        text-align: left;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-      }
+    </script> -->
+  <style>
+    .button {
+      background-color: white;
+      border: none;
+      color: black;
+      padding: 15px 32px;
+      text-align: left;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
 
-      .Replace:hover {
-        background-color: #f9e076;
-        color: white;
-      }
-      .Delete:hover {
-        background-color: #f9e076;
-        color: white;
-      }
-      .stock {
-        background-color: white;
-      }
+    .Replace:hover {
+      background-color: #f9e076;
+      color: white;
+    }
 
-      .grid-container2 {
-        width: 50vw;
-        height: 20vw;
-        display: inline-grid;
-        grid-template-columns: auto auto auto;
-        grid-template-rows: repeat(2, 1fr);
-        grid-gap: 50px;
-        padding: 20px;
-        justify-content: center;
-      }
+    .Delete:hover {
+      background-color: #f9e076;
+      color: white;
+    }
 
-      .grid-item {
-        background-color: #ffffff;
-        border: 1px solid rgba(0, 0, 0, 0.8);
+    .stock {
+      background-color: white;
+    }
 
-        padding: 20px;
-        font-size: 20px;
-        text-align: left;
-      }
+    .grid-container2 {
+      width: 50vw;
+      height: 20vw;
+      display: inline-grid;
+      grid-template-columns: auto auto auto;
+      grid-template-rows: repeat(2, 1fr);
+      grid-gap: 50px;
+      padding: 20px;
+      justify-content: center;
+    }
 
-      .grid-item2 {
-        background-color: #ffffff;
-        border: 1px solid rgba(0, 0, 0, 0.8);
-        padding: 20px;
-        font-size: 30px;
-        text-align: left;
-      }
+    .grid-item {
+      background-color: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.8);
 
-      body {
-        background-color: #2196f3;
-      }
+      padding: 20px;
+      font-size: 20px;
+      text-align: left;
+    }
 
-      .grid-container {
-        width: 45vw;
-        height: 30vw;
-        display: inline-grid;
-        grid-template-columns: auto auto auto;
-        grid-gap: 50px;
-        padding: 20px;
-        margin-bottom: 105px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="grid-container">
-      <div class="grid-item">
+    .grid-item2 {
+      background-color: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.8);
+      padding: 20px;
+      font-size: 30px;
+      text-align: left;
+    }
+
+    body {
+      background-color: #2196f3;
+    }
+
+    .grid-container {
+      width: 45vw;
+      height: 30vw;
+      display: inline-grid;
+      grid-template-columns: auto auto auto;
+      grid-gap: 50px;
+      padding: 20px;
+      margin-bottom: 105px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="grid-container">
+    <div class="grid-item">
+      <div>
+        <p>$ &nbsp;<input id="inpSymbol" value="" /></p>
+
+
+        <button onclick="getAlphaVantagedata();">Stock Price</button>
+
         <div>
-          <p>$ &nbsp;<input id="inpSymbol" value="" /></p>
-      
+          <a href="graph1.html">Graph</a>
+        </div>
 
-      <button onclick="getAlphaVantagedata();">get Stock prices</button>
-
-      <div id="divContents">
-        Data 
-      </div>
+        <div id="divContents">
         </div>
       </div>
-      <div class="grid-item">
-        <p>$ &nbsp;<input id="inpSymbol2" value="" /></p>
-      
+    
+    </div>
 
-      <button onclick="getAlphaVantagedata2();">get Stock prices</button>
+    <div class="grid-item">
+      <p>$ &nbsp;<input id="inpSymbol2" value="" /></p>
 
+
+      <button onclick="getAlphaVantagedata2();">Stock Price</button>
+      <div>
+        <a href="graph2.html">Graph</a>
+      </div>
       <div id="divContents2">
-        Data h
-      </div>
-      </div>
-      <div class="grid-item">
-        <p>$ &nbsp;<input id="inpSymbol" value="" /></p>
-      
-
-      <button onclick="getAlphaVantagedata();">get Stock prices</button>
-
-      <div id="divContents">
-        Data here
-      </div>
-      </div>
-      <div class="grid-item">
-        <p>$ &nbsp;<input id="inpSymbol" value="" /></p>
-      
-
-      <button onclick="getAlphaVantagedata();">get Stock prices</button>
-
-      <div id="divContents">
-        Data here
-      </div>
-      </div>
-      <div class="grid-item">
-        <p>$ &nbsp;<input id="inpSymbol" value="" /></p>
-      
-
-      <button onclick="getAlphaVantagedata();">get Stock prices</button>
-
-      <div id="divContents">
-        Data 
-      </div>
-      </div>
-      <div class="grid-item">
-        <p>$ &nbsp;<input id="inpSymbol" value="" /></p>
-      
-
-        <button onclick="getAlphaVantagedata();">get Stock prices</button>
-  
-        <div id="divContents">
-          Data .
-        </div>
-      </div>
-      <div class="grid-item">
-        <p>$ &nbsp;<input id="inpSymbol" value="" /></p>
-      
-
-      <button onclick="getAlphaVantagedata();">get Stock prices</button>
-
-      <div id="divContents">
-        Data
-      </div>
-      </div>
-      <div class="grid-item">
-        <p>$ &nbsp;<input id="inpSymbol" value="" /></p>
-      
-
-        <button onclick="getAlphaVantagedata();">get Stock prices</button>
-  
-        <div id="divContents">
-          Data 
-        </div>
-      </div>
-      <div class="grid-item">
-        <p>$ &nbsp;<input id="inpSymbol" value="" /></p>
-      
-
-      <button onclick="getAlphaVantagedata();">get Stock prices</button>
-
-      <div id="divContents">
-        Data 
-      </div>
-      </div>
-      <div class="grid-item">
-        <p>$ &nbsp;<input id="inpSymbol" value="" /></p>
-      
-
-      <button onclick="getAlphaVantagedata();">get Stock prices</button>
-
-      <div id="divContents">
-       data
-      </div>
       </div>
     </div>
-    <div class="grid-container2">
-      <div class="grid-item">
-        <div>
-          <a href="page1.html">Clear Page</a>
-        </div>
+    <div class="grid-item">
+      <p>$ &nbsp;<input id="inpSymbol3" value="" /></p>
+
+
+      <button onclick="getAlphaVantagedata3();">Stock Price</button>
+      <div>
+        <a href="graph3.html">Graph</a>
       </div>
-      <div class="grid-item">
-        <div>
-          <a href="page2.html">Graph</a>
-        </div>
+      <div id="divContents3">
       </div>
     </div>
-  </body>
-  <script>
+    <div class="grid-item">
+      <p>$ &nbsp;<input id="inpSymbol4" value="" /></p>
 
-    function requestFile(url) {
-            const xhr = new XMLHttpRequest();
-            xhr.open("GET", url, true);
-            xhr.onerror = function (xhr) {
-              console.log("error:", xhr);
-            };
-            xhr.onprogress = function (xhr) {
-              console.log("bytes loaded:", xhr.loaded);
-            }; /// or something
-            xhr.onload = callback;
-            xhr.send(null);
-    
-            function callback(xhr) {
-              const response = xhr.target.response;
-              
-    
-              if (response.slice(0, 1) !== "{") {
-                return;
-              } // not a json file
-              
-              const json = JSON.parse(response);
-              const intraDay = json["Time Series (5min)"];
-              var stock_Dates = []; //Array Of Data
-              var stock_opens = [];
-              var stock_highs = [];
-              var stock_lows = [];
-              var stock_closes = [];
-              var stock_volumes = [];
-              // var intraDay_date = { intraday: stock_Dates };
-              for (var update in intraDay) {
-                var stock_Date = update;
-                var stock_open = intraDay[update]["1. open"]; //Narrowing the endpoints for accessing the req Data
-                var stock_high = intraDay[update]["2. high"];
-                var stock_low = intraDay[update]["3. low"];
-                var stock_close = intraDay[update]["4. close"];
-                var stock_volume = intraDay[update]["5. volume"];
-                stock_Dates.push(stock_Date); //Pushing the Data into the Array of Data
-                stock_opens.push(stock_open);
-                stock_highs.push(stock_high);
-                stock_lows.push(stock_low);
-                stock_closes.push(stock_close);
-                stock_volumes.push(stock_volume);
-              }
-             
-              console.log(stock_open);
-              divContents.innerText = "stock open="+stock_open;
-    
-              console.log("json", json);
-            }
-          }
-    
-   
 
-    function getAlphaVantagedata() {
-        symbol = inpSymbol.value;
-        localStorage.setItem('val',symbol);
+      <button onclick="getAlphaVantagedata4();">Stock Price</button>
+      <div>
+        <a href="graph4.html">Graph</a>
+      </div>
+      <div id="divContents4">
+      </div>
+    </div>
+    <div class="grid-item">
+      <p>$ &nbsp;<input id="inpSymbol5" value="" /></p>
 
-        
 
-    
-    
-    
-        
-          url =
-            "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=" +
-            symbol +
-            "&interval=5min" +
-            "&outputsize=compact" +
-            "&datatype=json" +
-            "&apikey=TIZIBHZ1JKJVWIFP"
-            
-        
-    
-        requestFile(url);}
+      <button onclick="getAlphaVantagedata5();">Stock Price</button>
+      <div>
+        <a href="graph5.html">Graph</a>
+      </div>
+      <div id="divContents5">
+      </div>
+    </div>
+    <div class="grid-item">
+      <p>$ &nbsp;<input id="inpSymbol6" value="" /></p>
 
-        function getAlphaVantagedata2() {
+
+      <button onclick="getAlphaVantagedata6();">Stock Price</button>
+      <div>
+        <a href="graph6.html">Graph</a>
+      </div>
+      <div id="divContents6">
+      </div>
+    </div>
+    <div class="grid-item">
+      <p>$ &nbsp;<input id="inpSymbol7" value="" /></p>
+
+
+      <button onclick="getAlphaVantagedata7();">Stock Price</button>
+      <div>
+        <a href="graph7.html">Graph</a>
+      </div>
+      <div id="divContents7">
+      </div>
+    </div>
+    <div class="grid-item">
+      <p>$ &nbsp;<input id="inpSymbol8" value="" /></p>
+
+
+      <button onclick="getAlphaVantagedata8();">Stock Price</button>
+      <div>
+        <a href="graph8.html">Graph</a>
+      </div>
+      <div id="divContents8">
+      </div>
+    </div>
+    <div class="grid-item">
+      <p>$ &nbsp;<input id="inpSymbol9" value="" /></p>
+
+
+      <button onclick="getAlphaVantagedata9();">Stock Price</button>
+      <div>
+        <a href="graph9.html">Graph</a>
+      </div>
+      <div id="divContents9">
+      </div>
+    </div>
+    <div class="grid-item">
+      <p>$ &nbsp;<input id="inpSymbol10" value="" /></p>
+
+
+      <button onclick="getAlphaVantagedata10();">Stock Price</button>
+      <div>
+        <a href="graph10.html">Graph</a>
+      </div>
+      <div id="divContents10">
+      </div>
+    </div>
+
+</body>
+<script>
+
+  function requestFile(url) {
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", url, true);
+    xhr.onerror = function (xhr) {
+      console.log("error:", xhr);
+    };
+    xhr.onprogress = function (xhr) {
+      console.log("bytes loaded:", xhr.loaded);
+    }; /// or something
+    xhr.onload = callback;
+    xhr.send(null);
+
+    function callback(xhr) {
+      const response = xhr.target.response;
+
+
+      if (response.slice(0, 1) !== "{") {
+        return;
+      } // not a json file
+
+      var stock_open = "Please enter a valid symbol"
+      const json = JSON.parse(response);
+      const intraDay = json["Time Series (Daily)"];
+      var stock_Dates = []; //Array Of Data
+      var stock_opens = [];
+      var stock_highs = [];
+      var stock_lows = [];
+      var stock_closes = [];
+      var stock_volumes = [];
+      // var intraDay_date = { intraday: stock_Dates };
+      for (var update in intraDay) {
+        var stock_Date = update;
+        var stock_open = intraDay[update]["1. open"]; //Narrowing the endpoints for accessing the req Data
+        var stock_high = intraDay[update]["2. high"];
+        var stock_low = intraDay[update]["3. low"];
+        var stock_close = intraDay[update]["4. close"];
+        var stock_volume = intraDay[update]["5. volume"];
+        stock_Dates.push(stock_Date); //Pushing the Data into the Array of Data
+        stock_opens.push(stock_open);
+        stock_highs.push(stock_high);
+        stock_lows.push(stock_low);
+        stock_closes.push(stock_close);
+        stock_volumes.push(stock_volume);
+      }
+
+      console.log(stock_open);
+      divContents.innerText = stock_open;
+
+      console.log("json", json);
+    }
+  }
+
+
+
+  function getAlphaVantagedata() {
+    symbol = inpSymbol.value;
+    localStorage.setItem('val', symbol);
     
-    
+
+
+
+
+    url =
+      "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" +
+      symbol +
+      "&outputsize=compact" +
+      "&datatype=json" +
+      "&apikey=TIZIBHZ1JKJVWIFP"
+
+
+
+    requestFile(url);
+  }
+
+  function getAlphaVantagedata2() {
+
+
     symbol = inpSymbol2.value;
+    localStorage.setItem('val2', symbol);
+
+    url =
+      "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" +
+      symbol +
+      "&outputsize=compact" +
+      "&datatype=json" +
+      "&apikey=TIZIBHZ1JKJVWIFP"
 
 
+
+    requestFile2(url);
+    
+  }
+
+  function requestFile2(url) {
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", url, true);
+    xhr.onerror = function (xhr) {
+      console.log("error:", xhr);
+    };
+    xhr.onprogress = function (xhr) {
+      console.log("bytes loaded:", xhr.loaded);
+    }; /// or something
+    xhr.onload = callback;
+    xhr.send(null);
+
+    function callback(xhr) {
+      const response = xhr.target.response;
+
+
+      if (response.slice(0, 1) !== "{") {
+        return;
+      } // not a json file
+
+      var stock_open = "Please enter a valid symbol"
+      const json = JSON.parse(response);
+      const intraDay = json["Time Series (Daily)"];
+      var stock_Dates = []; //Array Of Data
+      var stock_opens = [];
+      var stock_highs = [];
+      var stock_lows = [];
+      var stock_closes = [];
+      var stock_volumes = [];
+      // var intraDay_date = { intraday: stock_Dates };
+      for (var update in intraDay) {
+        var stock_Date = update;
+        var stock_open = intraDay[update]["1. open"]; //Narrowing the endpoints for accessing the req Data
+        var stock_high = intraDay[update]["2. high"];
+        var stock_low = intraDay[update]["3. low"];
+        var stock_close = intraDay[update]["4. close"];
+        var stock_volume = intraDay[update]["5. volume"];
+        stock_Dates.push(stock_Date); //Pushing the Data into the Array of Data
+        stock_opens.push(stock_open);
+        stock_highs.push(stock_high);
+        stock_lows.push(stock_low);
+        stock_closes.push(stock_close);
+        stock_volumes.push(stock_volume);
+      }
+
+      console.log(stock_open);
+      divContents2.innerText = stock_open;
+
+      console.log("json", json);
+    }
+  }
+
+ 
+ function getAlphaVantagedata3() {
 
     
-      url =
-        "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=" +
-        symbol +
-        "&interval=5min" +
-        "&outputsize=compact" +
-        "&datatype=json" +
-        "&apikey=TIZIBHZ1JKJVWIFP"
-        
-    
+    symbol = inpSymbol3.value;
+    localStorage.setItem('val3', symbol);
 
-    requestFile2(url);}    
-
-    function requestFile2(url) {
-            const xhr = new XMLHttpRequest();
-            xhr.open("GET", url, true);
-            xhr.onerror = function (xhr) {
-              console.log("error:", xhr);
-            };
-            xhr.onprogress = function (xhr) {
-              console.log("bytes loaded:", xhr.loaded);
-            }; /// or something
-            xhr.onload = callback;
-            xhr.send(null);
-    
-            function callback(xhr) {
-              const response = xhr.target.response;
-              
-    
-              if (response.slice(0, 1) !== "{") {
-                return;
-              } // not a json file
-              
-              const json = JSON.parse(response);
-              const intraDay = json["Time Series (5min)"];
-              var stock_Dates = []; //Array Of Data
-              var stock_opens = [];
-              var stock_highs = [];
-              var stock_lows = [];
-              var stock_closes = [];
-              var stock_volumes = [];
-              // var intraDay_date = { intraday: stock_Dates };
-              for (var update in intraDay) {
-                var stock_Date = update;
-                var stock_open = intraDay[update]["1. open"]; //Narrowing the endpoints for accessing the req Data
-                var stock_high = intraDay[update]["2. high"];
-                var stock_low = intraDay[update]["3. low"];
-                var stock_close = intraDay[update]["4. close"];
-                var stock_volume = intraDay[update]["5. volume"];
-                stock_Dates.push(stock_Date); //Pushing the Data into the Array of Data
-                stock_opens.push(stock_open);
-                stock_highs.push(stock_high);
-                stock_lows.push(stock_low);
-                stock_closes.push(stock_close);
-                stock_volumes.push(stock_volume);
-              }
-             
-              console.log(stock_open);
-              divContents2.innerText = "stock open="+stock_open;
-    
-              console.log("json", json);
-            }
-          }
+    url =
+      "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" +
+      symbol +
+      "&outputsize=compact" +
+      "&datatype=json" +
+      "&apikey=TIZIBHZ1JKJVWIFP"
 
 
-      </script>
+
+    requestFile3(url);
+  }
+
+  function requestFile3(url) {
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", url, true);
+    xhr.onerror = function (xhr) {
+      console.log("error:", xhr);
+    };
+    xhr.onprogress = function (xhr) {
+      console.log("bytes loaded:", xhr.loaded);
+    }; /// or something
+    xhr.onload = callback;
+    xhr.send(null);
+
+    function callback(xhr) {
+      const response = xhr.target.response;
+
+
+      if (response.slice(0, 1) !== "{") {
+        return;
+      } // not a json file
+
+
+      var stock_open = "Please enter a valid symbol"
+      const json = JSON.parse(response);
+      const intraDay = json["Time Series (Daily)"];
+      var stock_Dates = []; //Array Of Data
+      var stock_opens = [];
+      var stock_highs = [];
+      var stock_lows = [];
+      var stock_closes = [];
+      var stock_volumes = [];
+      // var intraDay_date = { intraday: stock_Dates };
+      for (var update in intraDay) {
+        var stock_Date = update;
+        var stock_open = intraDay[update]["1. open"]; //Narrowing the endpoints for accessing the req Data
+        var stock_high = intraDay[update]["2. high"];
+        var stock_low = intraDay[update]["3. low"];
+        var stock_close = intraDay[update]["4. close"];
+        var stock_volume = intraDay[update]["5. volume"];
+        stock_Dates.push(stock_Date); //Pushing the Data into the Array of Data
+        stock_opens.push(stock_open);
+        stock_highs.push(stock_high);
+        stock_lows.push(stock_low);
+        stock_closes.push(stock_close);
+        stock_volumes.push(stock_volume);
+      }
+
+      console.log(stock_open);
+      divContents3.innerText = stock_open;
+
+      console.log("json", json);
+    }
+  }
+  
+function getAlphaVantagedata4() {
+
+
+symbol = inpSymbol4.value;
+localStorage.setItem('val4', symbol);
+
+url =
+  "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" +
+  symbol +
+  "&outputsize=compact" +
+  "&datatype=json" +
+  "&apikey=TIZIBHZ1JKJVWIFP"
+
+
+
+requestFile4(url);
+}
+
+function requestFile4(url) {
+const xhr = new XMLHttpRequest();
+xhr.open("GET", url, true);
+xhr.onerror = function (xhr) {
+  console.log("error:", xhr);
+};
+xhr.onprogress = function (xhr) {
+  console.log("bytes loaded:", xhr.loaded);
+}; /// or something
+xhr.onload = callback;
+xhr.send(null);
+
+function callback(xhr) {
+  const response = xhr.target.response;
+
+
+  if (response.slice(0, 1) !== "{") {
+    return;
+  } // not a json file
+
+  
+  var stock_open = "Please enter a valid symbol"
+  const json = JSON.parse(response);
+  const intraDay = json["Time Series (Daily)"];
+  var stock_Dates = []; //Array Of Data
+  var stock_opens = [];
+  var stock_highs = [];
+  var stock_lows = [];
+  var stock_closes = [];
+  var stock_volumes = [];
+  // var intraDay_date = { intraday: stock_Dates };
+  for (var update in intraDay) {
+    var stock_Date = update;
+    var stock_open = intraDay[update]["1. open"]; //Narrowing the endpoints for accessing the req Data
+    var stock_high = intraDay[update]["2. high"];
+    var stock_low = intraDay[update]["3. low"];
+    var stock_close = intraDay[update]["4. close"];
+    var stock_volume = intraDay[update]["5. volume"];
+    stock_Dates.push(stock_Date); //Pushing the Data into the Array of Data
+    stock_opens.push(stock_open);
+    stock_highs.push(stock_high);
+    stock_lows.push(stock_low);
+    stock_closes.push(stock_close);
+    stock_volumes.push(stock_volume);
+  }
+
+  console.log(stock_open);
+  divContents4.innerText = stock_open;
+
+  console.log("json", json);
+}
+}
+
+function getAlphaVantagedata5() {
+
+
+symbol = inpSymbol5.value;
+localStorage.setItem('val5', symbol);
+
+url =
+  "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" +
+  symbol +
+  "&outputsize=compact" +
+  "&datatype=json" +
+  "&apikey=TIZIBHZ1JKJVWIFP"
+
+
+
+requestFile5(url);
+}
+
+function requestFile5(url) {
+const xhr = new XMLHttpRequest();
+xhr.open("GET", url, true);
+xhr.onerror = function (xhr) {
+  console.log("error:", xhr);
+};
+xhr.onprogress = function (xhr) {
+  console.log("bytes loaded:", xhr.loaded);
+}; /// or something
+xhr.onload = callback;
+xhr.send(null);
+
+function callback(xhr) {
+  const response = xhr.target.response;
+
+
+  if (response.slice(0, 1) !== "{") {
+    return;
+  } // not a json file
+
+  var stock_open = "Please enter a valid symbol"
+  const json = JSON.parse(response);
+  const intraDay = json["Time Series (Daily)"];
+  var stock_Dates = []; //Array Of Data
+  var stock_opens = [];
+  var stock_highs = [];
+  var stock_lows = [];
+  var stock_closes = [];
+  var stock_volumes = [];
+  // var intraDay_date = { intraday: stock_Dates };
+  for (var update in intraDay) {
+    var stock_Date = update;
+    var stock_open = intraDay[update]["1. open"]; //Narrowing the endpoints for accessing the req Data
+    var stock_high = intraDay[update]["2. high"];
+    var stock_low = intraDay[update]["3. low"];
+    var stock_close = intraDay[update]["4. close"];
+    var stock_volume = intraDay[update]["5. volume"];
+    stock_Dates.push(stock_Date); //Pushing the Data into the Array of Data
+    stock_opens.push(stock_open);
+    stock_highs.push(stock_high);
+    stock_lows.push(stock_low);
+    stock_closes.push(stock_close);
+    stock_volumes.push(stock_volume);
+  }
+
+  console.log(stock_open);
+  divContents5.innerText = stock_open;
+
+  console.log("json", json);
+}
+}
+
+function getAlphaVantagedata6() {
+
+
+symbol = inpSymbol6.value;
+localStorage.setItem('val6', symbol);
+
+url =
+  "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" +
+  symbol +
+  "&outputsize=compact" +
+  "&datatype=json" +
+  "&apikey=TIZIBHZ1JKJVWIFP"
+
+
+
+requestFile6(url);
+}
+
+function requestFile6(url) {
+const xhr = new XMLHttpRequest();
+xhr.open("GET", url, true);
+xhr.onerror = function (xhr) {
+  console.log("error:", xhr);
+};
+xhr.onprogress = function (xhr) {
+  console.log("bytes loaded:", xhr.loaded);
+}; /// or something
+xhr.onload = callback;
+xhr.send(null);
+
+function callback(xhr) {
+  const response = xhr.target.response;
+
+
+  if (response.slice(0, 1) !== "{") {
+    return;
+  } // not a json file
+
+  var stock_open = "Please enter a valid symbol"
+  const json = JSON.parse(response);
+  const intraDay = json["Time Series (Daily)"];
+  var stock_Dates = []; //Array Of Data
+  var stock_opens = [];
+  var stock_highs = [];
+  var stock_lows = [];
+  var stock_closes = [];
+  var stock_volumes = [];
+  // var intraDay_date = { intraday: stock_Dates };
+  for (var update in intraDay) {
+    var stock_Date = update;
+    var stock_open = intraDay[update]["1. open"]; //Narrowing the endpoints for accessing the req Data
+    var stock_high = intraDay[update]["2. high"];
+    var stock_low = intraDay[update]["3. low"];
+    var stock_close = intraDay[update]["4. close"];
+    var stock_volume = intraDay[update]["5. volume"];
+    stock_Dates.push(stock_Date); //Pushing the Data into the Array of Data
+    stock_opens.push(stock_open);
+    stock_highs.push(stock_high);
+    stock_lows.push(stock_low);
+    stock_closes.push(stock_close);
+    stock_volumes.push(stock_volume);
+  }
+
+  console.log(stock_open);
+  divContents6.innerText = stock_open;
+
+  console.log("json", json);
+}
+}
+
+function getAlphaVantagedata7() {
+
+
+symbol = inpSymbol7.value;
+localStorage.setItem('val7', symbol);
+
+url =
+  "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" +
+  symbol +
+  "&outputsize=compact" +
+  "&datatype=json" +
+  "&apikey=TIZIBHZ1JKJVWIFP"
+
+
+
+requestFile7(url);
+}
+
+function requestFile7(url) {
+const xhr = new XMLHttpRequest();
+xhr.open("GET", url, true);
+xhr.onerror = function (xhr) {
+  console.log("error:", xhr);
+};
+xhr.onprogress = function (xhr) {
+  console.log("bytes loaded:", xhr.loaded);
+}; /// or something
+xhr.onload = callback;
+xhr.send(null);
+
+function callback(xhr) {
+  const response = xhr.target.response;
+
+
+  if (response.slice(0, 1) !== "{") {
+    return;
+  } // not a json file
+
+  var stock_open = "Please enter a valid symbol"
+  const json = JSON.parse(response);
+  const intraDay = json["Time Series (Daily)"];
+  var stock_Dates = []; //Array Of Data
+  var stock_opens = [];
+  var stock_highs = [];
+  var stock_lows = [];
+  var stock_closes = [];
+  var stock_volumes = [];
+  // var intraDay_date = { intraday: stock_Dates };
+  for (var update in intraDay) {
+    var stock_Date = update;
+    var stock_open = intraDay[update]["1. open"]; //Narrowing the endpoints for accessing the req Data
+    var stock_high = intraDay[update]["2. high"];
+    var stock_low = intraDay[update]["3. low"];
+    var stock_close = intraDay[update]["4. close"];
+    var stock_volume = intraDay[update]["5. volume"];
+    stock_Dates.push(stock_Date); //Pushing the Data into the Array of Data
+    stock_opens.push(stock_open);
+    stock_highs.push(stock_high);
+    stock_lows.push(stock_low);
+    stock_closes.push(stock_close);
+    stock_volumes.push(stock_volume);
+  }
+
+  console.log(stock_open);
+  divContents7.innerText = stock_open;
+
+  console.log("json", json);
+}
+}
+
+function getAlphaVantagedata8() {
+
+
+symbol = inpSymbol8.value;
+localStorage.setItem('val8', symbol);
+
+url =
+  "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" +
+  symbol +
+  "&outputsize=compact" +
+  "&datatype=json" +
+  "&apikey=TIZIBHZ1JKJVWIFP"
+
+
+
+requestFile8(url);
+}
+
+function requestFile8(url) {
+const xhr = new XMLHttpRequest();
+xhr.open("GET", url, true);
+xhr.onerror = function (xhr) {
+  console.log("error:", xhr);
+};
+xhr.onprogress = function (xhr) {
+  console.log("bytes loaded:", xhr.loaded);
+}; /// or something
+xhr.onload = callback;
+xhr.send(null);
+
+function callback(xhr) {
+  const response = xhr.target.response;
+
+
+  if (response.slice(0, 1) !== "{") {
+    return;
+  } // not a json file
+
+  var stock_open = "Please enter a valid symbol"
+  const json = JSON.parse(response);
+  const intraDay = json["Time Series (Daily)"];
+  var stock_Dates = []; //Array Of Data
+  var stock_opens = [];
+  var stock_highs = [];
+  var stock_lows = [];
+  var stock_closes = [];
+  var stock_volumes = [];
+  // var intraDay_date = { intraday: stock_Dates };
+  for (var update in intraDay) {
+    var stock_Date = update;
+    var stock_open = intraDay[update]["1. open"]; //Narrowing the endpoints for accessing the req Data
+    var stock_high = intraDay[update]["2. high"];
+    var stock_low = intraDay[update]["3. low"];
+    var stock_close = intraDay[update]["4. close"];
+    var stock_volume = intraDay[update]["5. volume"];
+    stock_Dates.push(stock_Date); //Pushing the Data into the Array of Data
+    stock_opens.push(stock_open);
+    stock_highs.push(stock_high);
+    stock_lows.push(stock_low);
+    stock_closes.push(stock_close);
+    stock_volumes.push(stock_volume);
+  }
+
+  console.log(stock_open);
+  divContents8.innerText = stock_open;
+
+  console.log("json", json);
+}
+}
+
+function getAlphaVantagedata9() {
+
+
+symbol = inpSymbol9.value;
+localStorage.setItem('val9', symbol);
+
+url =
+  "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" +
+  symbol +
+  "&outputsize=compact" +
+  "&datatype=json" +
+  "&apikey=TIZIBHZ1JKJVWIFP"
+
+
+
+requestFile9(url);
+}
+
+function requestFile9(url) {
+const xhr = new XMLHttpRequest();
+xhr.open("GET", url, true);
+xhr.onerror = function (xhr) {
+  console.log("error:", xhr);
+};
+xhr.onprogress = function (xhr) {
+  console.log("bytes loaded:", xhr.loaded);
+}; /// or something
+xhr.onload = callback;
+xhr.send(null);
+
+function callback(xhr) {
+  const response = xhr.target.response;
+
+
+  if (response.slice(0, 1) !== "{") {
+    return;
+  } // not a json file
+
+  var stock_open = "Please enter a valid symbol"
+  const json = JSON.parse(response);
+  const intraDay = json["Time Series (Daily)"];
+  var stock_Dates = []; //Array Of Data
+  var stock_opens = [];
+  var stock_highs = [];
+  var stock_lows = [];
+  var stock_closes = [];
+  var stock_volumes = [];
+  // var intraDay_date = { intraday: stock_Dates };
+  for (var update in intraDay) {
+    var stock_Date = update;
+    var stock_open = intraDay[update]["1. open"]; //Narrowing the endpoints for accessing the req Data
+    var stock_high = intraDay[update]["2. high"];
+    var stock_low = intraDay[update]["3. low"];
+    var stock_close = intraDay[update]["4. close"];
+    var stock_volume = intraDay[update]["5. volume"];
+    stock_Dates.push(stock_Date); //Pushing the Data into the Array of Data
+    stock_opens.push(stock_open);
+    stock_highs.push(stock_high);
+    stock_lows.push(stock_low);
+    stock_closes.push(stock_close);
+    stock_volumes.push(stock_volume);
+  }
+
+  console.log(stock_open);
+  divContents9.innerText = stock_open;
+
+  console.log("json", json);
+}
+}
+
+function getAlphaVantagedata10() {
+
+
+symbol = inpSymbol10.value;
+localStorage.setItem('val10', symbol);
+
+url =
+  "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" +
+  symbol +
+  "&outputsize=compact" +
+  "&datatype=json" +
+  "&apikey=TIZIBHZ1JKJVWIFP"
+
+
+
+requestFile10(url);
+}
+
+function requestFile10(url) {
+const xhr = new XMLHttpRequest();
+xhr.open("GET", url, true);
+xhr.onerror = function (xhr) {
+  console.log("error:", xhr);
+};
+xhr.onprogress = function (xhr) {
+  console.log("bytes loaded:", xhr.loaded);
+}; /// or something
+xhr.onload = callback;
+xhr.send(null);
+
+function callback(xhr) {
+  const response = xhr.target.response;
+
+
+  if (response.slice(0, 1) !== "{") {
+    return;
+  } // not a json file
+
+  var stock_open = "Please enter a valid symbol"
+  const json = JSON.parse(response);
+  const intraDay = json["Time Series (Daily)"];
+  var stock_Dates = []; //Array Of Data
+  var stock_opens = [];
+  var stock_highs = [];
+  var stock_lows = [];
+  var stock_closes = [];
+  var stock_volumes = [];
+  // var intraDay_date = { intraday: stock_Dates };
+  for (var update in intraDay) {
+    var stock_Date = update;
+    var stock_open = intraDay[update]["1. open"]; //Narrowing the endpoints for accessing the req Data
+    var stock_high = intraDay[update]["2. high"];
+    var stock_low = intraDay[update]["3. low"];
+    var stock_close = intraDay[update]["4. close"];
+    var stock_volume = intraDay[update]["5. volume"];
+    stock_Dates.push(stock_Date); //Pushing the Data into the Array of Data
+    stock_opens.push(stock_open);
+    stock_highs.push(stock_high);
+    stock_lows.push(stock_low);
+    stock_closes.push(stock_close);
+    stock_volumes.push(stock_volume);
+  }
+
+  console.log(stock_open);
+  divContents10.innerText = stock_open;
+
+  console.log("json", json);
+}
+}
+</script>
+
 </html>
